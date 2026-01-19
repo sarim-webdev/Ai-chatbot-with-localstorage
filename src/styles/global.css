@@ -26,6 +26,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 20px;
+    animation: slideInLeft 0.9s ease forwards;
 }
 
 .features-header h1 {
@@ -72,6 +73,17 @@ body {
     line-height: 1.5;
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* ---------------- RIGHT AUTH ---------------- */
 .auth-right {
     flex: 1;
@@ -94,6 +106,7 @@ body {
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s ease;
+    animation: slideInTop 0.8s ease forwards;
 }
 
 .glass-card:hover {
@@ -138,6 +151,17 @@ body {
 
 .glass-card button:hover {
     background: #444;
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* LOGIN ↔ SIGNUP SWITCH TEXT */

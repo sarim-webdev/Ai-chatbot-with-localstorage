@@ -198,13 +198,39 @@ body {
 /* Sidebar */
 .sidebar {
   width: 240px;
+  height: 100vh;
   background: #f4f6f8;
   backdrop-filter: blur(14px);
   box-shadow: 2px 0 10px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+}
+
+.sidebar-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 300;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: left 0.3s ease, background 0.3s ease;
+}
+
+.sidebar-mobile {
+  height: 100%;
+}
+
+.sidebar-mobile.open + .sidebar-toggle-btn,
+.sidebar-toggle-btn.open {
+  left: 12.5rem; /* sidebar width + thoda gap */
 }
 
 /* New Chat button */
@@ -264,6 +290,7 @@ body {
   font-weight: 700;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 .avatar {
@@ -419,6 +446,25 @@ body {
   .chat-input-container button {
     padding: 0.65rem 0.5rem;
     font-size: 0.8rem;
+  }
+  .sidebar-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-mobile {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 16rem;
+    height: 100vh;
+    z-index: 250;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar-mobile.open {
+    left: 0;
   }
 }
 
